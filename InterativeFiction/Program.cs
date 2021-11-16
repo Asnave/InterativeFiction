@@ -9,8 +9,6 @@ namespace InterativeFiction
     class Program
     {
         static bool gameOver = false;
-        static int x = 0;
-        static int y = 0;
         static string[,] story = new string[,]
         {
 
