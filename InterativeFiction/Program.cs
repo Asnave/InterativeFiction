@@ -8,17 +8,13 @@ namespace InterativeFiction
 {
     class Program
     {
+        
         static bool gameOver = false;
-        static string[,] story = new string[,]
-        {
-
-        {"Title","Page1"},
-        {"Page2","Page3"},
-        {"Your on page 2","your on page 3" },
-        {"Go to page2","Go to page3",},
-
-        };
-
+        static string[] storyTable = new string[20];
+        static int currentPage = 0;
+        static bool ChoiceA = false;
+        static bool ChoiceB = false;
+        static bool CorrectedText = false;
 
 
         static void Main(string[] args)
@@ -30,54 +26,121 @@ namespace InterativeFiction
 
             while (gameOver == false)
             {
-                Console.WriteLine(story[1, 1]);
-                Console.WriteLine("");
-                Console.WriteLine(story[1, 2]);
-
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("<A> "+ story[4, 1]);
-                Console.WriteLine("<B> " + story[4, 2]);
+                PageCorrector();
+                Story(currentPage);
+                Inputs();
+                PageCorrector();
+                
+                
+                
 
 
             }
 
 
         }
+
+        static void Story(int storyLocation)
+        {
+            currentPage = storyLocation;
+
+            storyTable[0] = " Page One:"+
+                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 3:2";
+
+            storyTable[1] = " Page Two:" +
+                " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying ";
+
+            storyTable[2] = "Page Three:" +
+                " You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 4:5";
+
+            storyTable[3] = "                 Page Four" +
+                "     You awake, Inside a cube, each direction has a door" +
+                "           which door do you want to explore?";
+
+            storyTable[4] = "                 Page Five" +
+                "     You awake, Inside a cube, each direction has a door" +
+                "           which door do you want to explore?";
+        }
+
+        static void PageChanger()
+        {
+            string choiceA = storyTable[currentPage].Remove(storyTable[currentPage].Length - 2);
+            choiceA = choiceA.Substring(choiceA.Length - 1);
+
+            string choiceB = storyTable[currentPage].Substring(storyTable[currentPage].Length - 1);
+            string pageHider = storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
+
+            if (ChoiceA == true)
+            {
+                int.TryParse(choiceA, out currentPage);
+            }
+
+            if (ChoiceB == true)
+            {
+                int.TryParse(choiceB, out currentPage);
+            }
+
+            if (CorrectedText == true)
+            {
+                Console.Write(pageHider);
+            }
+
+            Console.WriteLine("");
+        }
         static void Inputs()
         {
-
+            
             ConsoleKeyInfo Input = Console.ReadKey(intercept: true);
 
             if (Input.Key == ConsoleKey.A)
             {
-                Console.Clear();
-                Console.Write(story[2, 1]);
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine(story[3,1]);
-
+                ChoiceA = true;
             }
             else if (Input.Key == ConsoleKey.B)
             {
-                Console.Clear();
-                Console.Write(story[2, 2]);
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine(story[3, 2]);
+                ChoiceB = true;
             }
-            else if (Input.Key == ConsoleKey.Escape)
+
+            PageChanger();
+        }
+        static void PageCorrector()
+        {
+            if (ChoiceA == true)
             {
-                Console.Clear();
-                Console.WriteLine(story[1, 1]);
-                Console.WriteLine("");
-                Console.WriteLine(story[1, 2]);
-
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey(true);
             }
-
+            if (ChoiceB == true)
+            {
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey(true);
+            }
+            ChoiceA = false;
+            ChoiceB = false;
+            CorrectedText = true;
         }
 
+        public static void GameTitle()
+        {
+            Console.WriteLine("welcome to game");
+            Console.ReadKey(true);
+            Console.Clear();
+           
+        }
 
+        public static void GameOver()
+        {
+            Console.WriteLine("you Lost");
+            Console.ReadKey(true);
+            gameOver = true;
+        }
+
+        public static void YouWin()
+        {
+            Console.WriteLine("you win");
+            Console.ReadKey(true);
+            gameOver = true;
+        }
 
 
 
