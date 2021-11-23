@@ -31,8 +31,8 @@ namespace InterativeFiction
                 Inputs();
                 PageCorrector();
                 
-                
-                
+
+
 
 
             }
@@ -44,8 +44,9 @@ namespace InterativeFiction
         {
             currentPage = storyLocation;
 
-            storyTable[0] = " Page One:"+
+            storyTable[0] = " Page One:" +
                 " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
+                
 
             storyTable[1] = " Page Two:" +
                 " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying ";
@@ -53,7 +54,7 @@ namespace InterativeFiction
             storyTable[2] = "Page Three:" +
                 " You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
 
-            storyTable[3] = "                 Page Four" +
+            storyTable[3] = " Page Four:" +
                 "     You awake, Inside a cube, each direction has a door" +
                 "           which door do you want to explore?";
 
@@ -102,8 +103,10 @@ namespace InterativeFiction
             else if (Input.Key == ConsoleKey.B)
             {
                 ChoiceB = true;
+                
             }
             PageChanger();
+            PageCorrector();
         }
         static void PageCorrector()
         {
@@ -144,7 +147,7 @@ namespace InterativeFiction
             gameOver = true;
         }
 
-
+        
 
     }
 }
