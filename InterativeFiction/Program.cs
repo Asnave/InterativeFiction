@@ -19,11 +19,13 @@ namespace InterativeFiction
 
         static void Main(string[] args)
         {
-              // how am I supposed to do this......
-             // GameLoops for player interaction
+            // how am I supposed to do this......
+            // GameLoops for player interaction
             // I need to make triggers - when button is pressed choice is displayed (if statments)
-           // Use string array for story text
+            // Use string array for story text
 
+
+            GameTitle();
             while (gameOver == false)
             {
                 
