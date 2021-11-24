@@ -28,10 +28,13 @@ namespace InterativeFiction
             GameTitle();
             while (gameOver == false)
             {
-                
+               
                 Story(currentPage);
-                Inputs();
                 PageCorrector();
+                Inputs();
+                Console.Clear();
+                
+               
                 
 
 
