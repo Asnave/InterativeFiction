@@ -15,7 +15,8 @@ namespace InterativeFiction
         static bool ChoiceA = false;
         static bool ChoiceB = false;
         static bool CorrectedText = false;
-       static int i = 0;
+        
+       
 
         static void Main(string[] args)
         {
@@ -31,7 +32,6 @@ namespace InterativeFiction
                 
                 Story(currentPage);
                 PageCorrector();
-               
                 Inputs();
                 Console.Clear();
 
@@ -42,14 +42,13 @@ namespace InterativeFiction
 
         static void Story(int storyLocation)
         {
-            currentPage = storyLocation;
+            
 
          
             
             storyTable[0] = " Page One:" +
                 " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
                 
-
             storyTable[1] = " Page Two:" +
                 " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying   ";
 
@@ -57,46 +56,88 @@ namespace InterativeFiction
                 " You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
 
             storyTable[3] = " Page Four:" +
-                "     You awake, Inside a cube, each direction has a door" +
-                "           which door do you want to explore?";
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
 
-            storyTable[4] = "                 Page Five" +
-                "     You awake, Inside a cube, each direction has a door" +
-                "           which door do you want to explore?";
+            storyTable[4] = " Page Five:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
 
-            
+            storyTable[5] = " Page Six:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[6] = " Page Seven:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[7] = " Page Eight:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[8] = " Page Nine:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[9] = " Page Ten:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[10] = " Page Eleven:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[11] = " Page Twelve:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[12] = " Page Thirdteen:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[13] = " Page FourTeen:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[14] = " Page Fithteen:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+
+            storyTable[15] = " Page Sixteen:" +
+                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
         }
 
         static void Options()
         {
           if(storyTable[currentPage].Contains("Page"))
             {
-
+                
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("");
-                Console.WriteLine("Option A - Go Right ");
-                Console.WriteLine("Option B - Go Left");
+                Console.WriteLine("Option A -  ");
+                Console.WriteLine("Option B -  ");
                 Console.ResetColor();
             }
         }
         static void PageChanger()
         {
+            
             string choiceA = 
+                // [X] "xyz" A:B --- .Removes the B option ( so it doesnt read it )
                 storyTable[currentPage].Remove(storyTable[currentPage].Length - 2);
+
+
+                // Takes [X] "xyz" A and reads it making it a substring aswell as removing A 
                 choiceA = choiceA.Substring(choiceA.Length - 1);
 
-            string choiceB = 
+
+            string choiceB =
+                // Takes [X] "xyz" B and reads it making it a substring aswell as removing B 
                 storyTable[currentPage].Substring(storyTable[currentPage].Length - 1);
+
+
+                // Removes The A:B page markers from string before printing 
             string pageHider = 
                 storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
 
+
             if (ChoiceA == true)
             {
+                // Converts string choiceA's A to int current page ->[X]
                 int.TryParse(choiceA, out currentPage);
             }
 
             if (ChoiceB == true)
             {
+                // Converts string choiceB's B to int current page ->[X]
                 int.TryParse(choiceB, out currentPage);
             }
 
@@ -130,6 +171,7 @@ namespace InterativeFiction
         }
         static void PageCorrector()
         {
+            // Makes sure your on the right page aswell as resting the choice Bools so cannot Spam
             if (ChoiceA == true)
             {
                 Console.WriteLine("");
