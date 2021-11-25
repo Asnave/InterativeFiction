@@ -31,7 +31,7 @@ namespace InterativeFiction
                 
                 Story(currentPage);
                 PageCorrector();
-                ColorChanger();
+               
                 Inputs();
                 Console.Clear();
 
@@ -47,11 +47,11 @@ namespace InterativeFiction
          
             
             storyTable[0] = " Page One:" +
-                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore?                                                                                                                              A - Go Left  B - Go Right 1:2";
+                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
                 
 
             storyTable[1] = " Page Two:" +
-                " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying ";
+                " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying   ";
 
             storyTable[2] = "Page Three:" +
                 " You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
@@ -67,13 +67,15 @@ namespace InterativeFiction
             
         }
 
-        static void ColorChanger()
+        static void Options()
         {
-          if(storyTable[currentPage].Contains("A"))
+          if(storyTable[currentPage].Contains("Page"))
             {
+
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Option A - ");
-                Console.WriteLine("Option B -");
+                Console.WriteLine("");
+                Console.WriteLine("Option A - Go Right ");
+                Console.WriteLine("Option B - Go Left");
                 Console.ResetColor();
             }
         }
@@ -101,6 +103,7 @@ namespace InterativeFiction
             if (CorrectedText == true)
             {
                 Console.Write(pageHider);
+                Options();
             }
 
             Console.WriteLine("");
