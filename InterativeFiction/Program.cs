@@ -46,29 +46,37 @@ namespace InterativeFiction
 
          
             
-            storyTable[0] = " Page One:" +
-                " \n You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
+            storyTable[00] = "                                        Page One" +
+                " \n You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 01:02";
                 
-            storyTable[1] = " Page Two:" +
+            storyTable[01] = "                                        Page Two" +
                 " \n You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying   ";
 
-            storyTable[2] = "Page Three:" +
-                " \n You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
+            storyTable[02] = "                                        Page Three" +
+                " \n You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 03:04";
 
-            storyTable[3] = " Page Four:" +
+            storyTable[03] = "                                        Page Four" +
                 " \n Conifdent about passing that first room, You fast-walked into the Left Room without any thought." +
                 " \n Bold desison in that if you walked any slower you would have fallen into the pit that appeared under the few tiles you onced were standing on." +
-                " \n Your not safe yet though, more and more tiles are starting to fall into the pit, quickly! you must choose which door to sprite to!";
+                " \n Your not safe yet though, more and more tiles are starting to fall into the pit revealing long pointed spikes, " +
+                " \n quickly! you must choose which door to sprite to! 05:06";
                 
 
-            storyTable[4] = " Page Five:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[04] = "                                        Page Five" +
+                " \n  ";
 
-            storyTable[5] = " Page Six:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[05] = "                                        Page Six" +
+                " \n Well knowing that if you dont take this chance of running to Left Room you will become a Human sized and falvoured Shish Kabob." +
+                " \n Diving right into the room with no time to spare as the metal airlock looking door slides shut behind you Catching your foot in the process." +
+                " \n its stuck, But theres a single Hunting Knife in the Centre of the room, What do You Do? 09:12";
 
-            storyTable[6] = " Page Seven:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[06] = "                                      Page Seven" +
+                " \n Spriting as fast as you can to the Right Room, well knowing if you choose the wrong door you could possibly end up dead the same way or even more gruesome.  " +
+                " \n Its clear in any situation where its life or death we will choose to stick it out as long as we can." + Console.ReadKey(true) +
+                " \n                                   You sucuessfully make it to the new room. " + Console.ReadKey(true) +
+                " \n Everything seems fine, no holes in the floor, no traps what so ever accept the air is a bit cooler." +
+                " \n It gets colder and colder, so cold that you can feel your blood starting to cystalize within your body, skin turning black and digits falling off" +
+                " \n                                      You Painfully Freezing To Death.   ";
 
             storyTable[7] = " Page Eight:" +
                 " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
@@ -76,23 +84,26 @@ namespace InterativeFiction
             storyTable[8] = " Page Nine:" +
                 " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
 
-            storyTable[9] = " Page Ten:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[09] = "                                     Page Ten" +
+                " \n You reach for the knife Well knowing that the decision your about to make is going to hinder the rest of your experince in this Death Trap aswell as the rest of your life if you make it out." +
+                " \n Holding up the knife like out of a horror movie, just about to bring it down upon your foot, the door swings open releasing your foot and a Woman jumps through just like you did." +
+                " \n She Catches a glimps of you still holding up the knife, fearful she backs up telling you to 'Stay Away' 14:14";
 
             storyTable[10] = " Page Eleven:" +
                 " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
 
-            storyTable[11] = " Page Twelve:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[11] = "                                  Page Twelve" +
+                "";
 
             storyTable[12] = " Page Thirdteen:" +
                 " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
 
             storyTable[13] = " Page FourTeen:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+                " You awake, Inside a cube, each direction has a door which door do you want to explore? 15:11  ";
 
-            storyTable[14] = " Page Fithteen:" +
-                " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
+            storyTable[14] = "                                Page Fithteen" +
+                " \n A Voice booms from all sides of the room." +
+                " \n ' ONLY ONE CAN PASS '  ";
 
             storyTable[15] = " Page Sixteen:" +
                 " You awake, Inside a cube, each direction has a door which door do you want to explore?  ";
@@ -115,21 +126,21 @@ namespace InterativeFiction
             
             string choiceA = 
                 // [X] "xyz" A:B --- .Removes the B option ( so it doesnt read it )
-                storyTable[currentPage].Remove(storyTable[currentPage].Length - 2);
+                storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
 
 
                 // Takes [X] "xyz" A and reads it making it a substring aswell as removing A 
-                choiceA = choiceA.Substring(choiceA.Length - 1);
+                choiceA = choiceA.Substring(choiceA.Length - 2);
 
 
             string choiceB =
                 // Takes [X] "xyz" B and reads it making it a substring aswell as removing B 
-                storyTable[currentPage].Substring(storyTable[currentPage].Length - 1);
+                storyTable[currentPage].Substring(storyTable[currentPage].Length - 2);
 
 
                 // Removes The A:B page markers from string before printing 
             string pageHider = 
-                storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
+                storyTable[currentPage].Remove(storyTable[currentPage].Length - 5);
 
 
             if (ChoiceA == true)
