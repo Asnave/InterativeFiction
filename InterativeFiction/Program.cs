@@ -47,16 +47,16 @@ namespace InterativeFiction
          
             
             storyTable[0] = " Page One:" +
-                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
+                " \n You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
                 
             storyTable[1] = " Page Two:" +
-                " You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying   ";
+                " \n You Fall into a pit full of snakes, Unfortunitly your illergic to snakes, you dying   ";
 
             storyTable[2] = "Page Three:" +
-                " You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
+                " \n You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right? 3:4";
 
             storyTable[3] = " Page Four:" +
-                " Conifdent about passing that first room, You fast-walked into the Left Room without any thought." +
+                " \n Conifdent about passing that first room, You fast-walked into the Left Room without any thought." +
                 " \n Bold desison in that if you walked any slower you would have fallen into the pit that appeared under the few tiles you onced were standing on." +
                 " \n Your not safe yet though, more and more tiles are starting to fall into the pit, quickly! you must choose which door to sprite to!";
                 
@@ -174,6 +174,7 @@ namespace InterativeFiction
             }
             Console.WriteLine();
             PageChanger();
+
            
         }
         static void PageCorrector()
@@ -183,13 +184,15 @@ namespace InterativeFiction
             {
                 Console.WriteLine("");
                 Console.WriteLine("Lock In Your Answer by Double Tapping Key");
-                Console.ReadKey();
+                Console.ReadKey(true);
+                Console.Clear();
             }
             if (ChoiceB == true)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Lock In Your Answer by Double Tapping Key");
-                Console.ReadKey();
+                Console.ReadKey(true);
+                Console.Clear();
             }
 
             ChoiceA = false;
