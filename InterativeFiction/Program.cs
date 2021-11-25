@@ -53,7 +53,19 @@ namespace InterativeFiction
                 " \n Option B - Go Right 01:02";
                 
             storyTable[01] = "                                        Page Two" +
-                " \n You Fall into a pit full of snakes, Unfortunitly your Allergic to snakes, you dying 01:01";
+                " \n      _    _                           " +
+                " \n   ,-(|)--(|)-.                        " +
+                " \n   \\_  ..   _/                         " +
+                " \n    \\_______/                     /\\ " +
+                " \n     \\V  V \\                     / / " +
+                " \n     |      |    _------_       (   \\  "        +
+                " \n     \\      \\  /          \\      \\  )    " +
+                " \n       \\     \\/    __       \\_---'  /     " +
+                " \n        (          /  \\             /" +
+                " \n         \\_______'     \\___________/       " +
+                " \n ------------------------------------------------------------------------------------" +
+                " \n|You Fall into a pit full of snakes, Unfortunitly your Allergic to snakes, you dying|" +
+                " \n_____________________________________________________________________________________ 01:01";
 
             storyTable[02] = "                                        Page Three" +
                 " \n You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right?" +
@@ -151,6 +163,23 @@ namespace InterativeFiction
                 " \n The Woman walks through unharmed, you saving her life, being a Hero! 16:16";
         }
 
+        
+        
+      
+                         
+
+        
+
+        static void DeathChecks()
+        {
+            if (storyTable[currentPage].Contains("snakes"))
+            {
+                
+
+
+             
+            }
+        }
         static void Options()
         {
           if(storyTable[currentPage].Contains("Page"))
@@ -169,6 +198,7 @@ namespace InterativeFiction
             string choiceA = 
                 // [X] "xyz" AA:BB --- .Removes the BB option ( so it doesnt read it )
                 storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
+            
 
 
                 // Takes [X] "xyz" AA and reads the AA part 
@@ -255,7 +285,7 @@ namespace InterativeFiction
 
         public static void GameTitle()
         {
-            Console.WriteLine("welcome to game");
+          
             Console.ReadKey(true);
            
            
