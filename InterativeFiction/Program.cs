@@ -15,7 +15,7 @@ namespace InterativeFiction
         static bool ChoiceA = false;
         static bool ChoiceB = false;
         static bool CorrectedText = false;
-
+       static int i = 0;
 
         static void Main(string[] args)
         {
@@ -28,17 +28,12 @@ namespace InterativeFiction
             GameTitle();
             while (gameOver == false)
             {
-               
+                
                 Story(currentPage);
                 PageCorrector();
+                ColorChanger();
                 Inputs();
                 Console.Clear();
-                
-               
-                
-
-
-
 
             }
 
@@ -49,8 +44,10 @@ namespace InterativeFiction
         {
             currentPage = storyLocation;
 
+         
+            
             storyTable[0] = " Page One:" +
-                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? 1:2";
+                " You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore?                                                                                                                              A - Go Left  B - Go Right 1:2";
                 
 
             storyTable[1] = " Page Two:" +
@@ -66,8 +63,20 @@ namespace InterativeFiction
             storyTable[4] = "                 Page Five" +
                 "     You awake, Inside a cube, each direction has a door" +
                 "           which door do you want to explore?";
+
+            
         }
 
+        static void ColorChanger()
+        {
+          if(storyTable[currentPage].Contains("A"))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Option A - ");
+                Console.WriteLine("Option B -");
+                Console.ResetColor();
+            }
+        }
         static void PageChanger()
         {
             string choiceA = 
@@ -103,11 +112,14 @@ namespace InterativeFiction
 
             if (Input.Key == ConsoleKey.A)
             {
+
                 ChoiceA = true;
+                ChoiceB = false;
             }
             else if (Input.Key == ConsoleKey.B)
             {
                 ChoiceB = true;
+                ChoiceA = false;
                 
             }
             PageChanger();
@@ -117,14 +129,17 @@ namespace InterativeFiction
         {
             if (ChoiceA == true)
             {
-                Console.WriteLine("Press any key to continue");
+                Console.WriteLine("");
+                Console.WriteLine("Lock In Your Answer by Double Tapping Key");
                 Console.ReadKey(true);
             }
             if (ChoiceB == true)
             {
-                Console.WriteLine("Press any key to continue");
+                Console.WriteLine("");
+                Console.WriteLine("Lock In Your Answer by Double Tapping Key");
                 Console.ReadKey(true);
             }
+
             ChoiceA = false;
             ChoiceB = false;
             CorrectedText = true;
@@ -134,7 +149,7 @@ namespace InterativeFiction
         {
             Console.WriteLine("welcome to game");
             Console.ReadKey(true);
-            Console.Clear();
+           
            
         }
 
