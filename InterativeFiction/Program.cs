@@ -39,7 +39,6 @@ namespace InterativeFiction
                 Story(currentPage);
                 PageCorrector();
                 Inputs();
-                Options();
                 Console.Clear();
 
             }
@@ -55,98 +54,260 @@ namespace InterativeFiction
          //                                                                                             EXAMPLE: 01:02 = Option A : Option B -> numbers arent pages they are index 
             
             storyTable[00] = "                                        Page One" +
-                " \n You awake, Inside a cube, There is a Door to the Left and Right of you, which door do you want to explore? " +
+                " \n |                  |                                                                 |                   |" +
+                " \n |          _____   |                                                                 |   _____           |" +
+                " \n |       --     |   |                                                                 |   |     --        | " +
+                " \n |      |       |   |                                                                 |   |       |       | " +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |    ___----------------------------------------------------------------------------___   |       |" +
+                " \n ______-----                                                                                  -----_______" +
+                " \n ----------------------------------------------------------------------------------------------------------" +
+                " \n You awake, Inside a CHAMBER, There is a Door to the left and right of you, which door do you want to explore? " +
                 " \n Option A - Go Left" +
                 " \n Option B - Go Right 01:02";
                 
             storyTable[01] = "                                        Page Two" +
-                " \n      _    _                           " +
-                " \n   ,-(|)--(|)-.                        " +
-                " \n   \\_  ..   _/                         " +
-                " \n    \\_______/                     /\\ " +
-                " \n     \\V  V \\                     / / " +
-                " \n     |      |    _------_       (   \\  "        +
-                " \n     \\      \\  /          \\      \\  )    " +
-                " \n       \\     \\/    __       \\_---'  /     " +
-                " \n        (          /  \\             /" +
-                " \n         \\_______'     \\___________/       " +
+                " \n                                   _    _                           " +
+                " \n                                ,-(|)--(|)-.                        " +
+                " \n                                \\_  ..   _/                         " +
+                " \n                                 \\_______/                     /\\ " +
+                " \n                                  \\V  V \\                     / / " +
+                " \n                                    |      |    _------_       (   \\  "        +
+                " \n                                    \\      \\  /          \\      \\  )    " +
+                " \n                                     \\     \\/    __       \\_---'  /     " +
+                " \n                                       (          /  \\             /" +
+                " \n                                        \\_______'     \\___________/       " +
                 " \n ------------------------------------------------------------------------------------" +
-                " \n|You Fall into a pit full of snakes, Unfortunitly your Allergic to snakes, you dying|" +
-                " \n_____________________________________________________________________________________ 01:01";
+                " \n You fall into a pit full of snakes, unfortunately you`re allergic to snakes, you`re dying " +
+                " \n 01:01";
 
-            storyTable[02] = "                                        Page Three" +
-                " \n You peek your head into the door. It seems to be safe, walking through there is two more doors. do you go Left or Right?" +
+            storyTable[02] = "                                        Page Three"+
+                " \n |                  |                                                                 |                   |" +
+                " \n |          _____   |                                                                 |   _____           |" +
+                " \n |       --     |   |                                                                 |   |     --        | " +
+                " \n |      |       |   |                                                                 |   |       |       | " +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |       |   |                                                                 |   |       |       |" +
+                " \n |      |    ___----------------------------------------------------------------------------___   |       |" +
+                " \n ______-----                                                                                  -----_______" +
+                " \n ----------------------------------------------------------------------------------------------------------"+
+                " \n You peek your head into the door. It seems to be safe, walking through there are two more doors. " +
+                " \n Do you go left or right?" +
                 " \n Option A - Go Left" +
                 " \n Option B - Go Right 03:04";
 
             storyTable[03] = "                                        Page Four" +
-                " \n Conifdent about passing that first room, You fast-walked into the Left Room without any thought." +
-                " \n Bold desison in that if you walked any slower you would have fallen into the pit that appeared under the few tiles you onced were standing on." +
-                " \n Your not safe yet though, more and more tiles are starting to fall into the pit revealing long pointed spikes, " +
-                " \n quickly! you must choose which door to sprite to!" +
+                " \n |                  |                                                                   |                   | " +
+                " \n |          _____   |                                                                   |   _____           |" +
+                " \n |       --     |   |                                                                   |   |     --        | " +
+                " \n |      |       |   |                                                                   |   |       |       | " +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |       |   |                                                                   |   |       |       |" +
+                " \n |      |    ___-----------------------\\                                //-------------------___   |       |" +
+                " \n ______-----                           /    /\\         /\\        /\\   \\                     -----_______" +
+                " \n--------------------------------------/^^^^/ \\^^^^^^^^/  \\^^^^^^/  \\^^^^\\--------------------------------" +
+                " \n Confident about passing that first room, You sped into the left room without any thought." +
+                " \n Bold decison in that if you walked any slower you would have fallen into the pit that appeared under the few tiles you onced were standing on." +
+                " \n You're not safe yet though, more and more tiles are starting to fall into the pit revealing long pointed spikes. " +
+                " \n Quickly! You must choose which door to sprint to!" +
                 " \n Option A - Left Door" +
                 " \n Option B - Right Door 05:06";
                 
 
             storyTable[04] = "                                        Page Five" +
-                " \n You Cautiously walk into the room, so far so good this werid facility you woke up just has a bunch of empty rooms." +
-                " \n This time there is two doors ahead of you one to the Left on to the Right, which do you choose?" +
+                " \n |                  |                                                                 |                   | " +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |____________                                       ______________|                   | " +
+                " \n |                  |           |                                       |             |                   | " +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |                  |           |                                       |             |                   |" +
+                " \n |           ___----------------------------------------------------------------------------___           |" +
+                " \n ______-----                                                                                  -----_______" +
+                " \n ----------------------------------------------------------------------------------------------------------" + 
+                " \n You cautiously walk into the room. So far so good. This weird facility you woke up in just has a bunch of empty rooms." +
+                " \n This time there are two doors ahead of you, which do you choose?" +
                 " \n Option A - Door On The Left" +
                 " \n Option B - Door On The Right 07:08";
 
             storyTable[05] = "                                        Page Six" +
-                " \n Well knowing that if you dont take this chance of running to Left Room you will become a Human sized and falvoured Shish Kabob." +
-                " \n Diving right into the room with no time to spare as the metal airlock looking door slides shut behind you Catching your foot in the process." +
-                " \n its stuck, But theres a single Hunting Knife in the Centre of the room, What do You Do?" +
+                " \n |                  |                                                                 |                   | " +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   | " +
+                " \n |                  |                                                                 |                   | " +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                                                 |                   |" +
+                " \n |                  |                                   _____________                 |                   |" +
+                " \n |           ___--------------------------------________|*      *   /----------------  -----___           |" +
+                " \n ______-----                                   (__________--*-----/                           -----_______" +
+                " \n ----------------------------------------------------------------------------------------------------------" +
+                " \n Knowing that if you don't take this chance of running to the left room you will become a human sized and flavoured shish kabob." +
+                " \n Diving right into the room with no time to spare as the metal airlock slides shut behind you, catching your foot in the process." +
+                " \n Its stuck, But theres a single hunting knife in front of you, What do you do?" +
                 " \n Option A - Cut Off Foot" +
                 " \n Option B - Sit And Wait 09:11";
 
             storyTable[06] = "                                           Page Seven" +
-                " \n Spriting as fast as you can to the Right Room, well knowing if you choose the wrong door you could possibly end up dead the same way or even more gruesome.  " +
-                " \n Its clear in any situation where its life or death we will choose to stick it out as long as we can." + 
-                " \n                                   You sucuessfully make it to the new room. " +
-                " \n Everything seems fine, no holes in the floor, no traps what so ever accept the air is a bit cooler." +
+                " \n                                                     ,'/ //\\" +
+                " \n                                                     /// // /)" +
+                " \n                                                    /// // //|" +
+                " \n                                                   /// // /// " +
+                " \n                                                  /// // /// " +
+                " \n                                                 (`: // /// " +
+                " \n                                                  `;`: /// " +
+                " \n                                                  / /:`:/ " +
+                " \n                                                 / /  `' " +
+                " \n                                                / /       " +
+                " \n                                               (_/         " +
+                " \n Sprinting as fast as you can to the right room. " + 
+                " \n You sucuessfully make it to the new room. " +
+                " \n Everything seems fine, no holes in the floor, no traps what so ever except the air is a bit cooler." +
                 " \n It gets colder and colder, so cold that you can feel your blood starting to cystalize within your body, skin turning black and digits falling off" +
-                " \n                                      You Painfully Freezing To Death. 06:06";
+                " \n                                      You Painfully Freeze To Death. 06:06";
 
-            storyTable[07] = "                                     Page Eight" +
-                " \n You make it to the Left room and find it covered in cobwebs" +
+            storyTable[07] = "                                        Page Eight" +
+                " \n                                  ____                      ," +
+                " \n                                 /---.'.__             ____//" +
+                " \n                                /---.'.__             ____//" +
+                " \n                                     _______  \\\\         //" +
+                " \n                                    /.------.\\  \\|      .'/  ______" +
+                " \n                                    /  ___  \\ \\ ||/|\\  //  _/_----.\\__" +
+                " \n                                    |/  /.-.\\  \\ \\:|< >|// _/.'..\\\\   '--'" +
+                " \n                                         //   \\'. | \\'.|.'/ /_/ /  \\\\ " +
+                " \n                                        //     \\ \\_\\/  \\          \\\\" +
+                " \n                                       //       '-._| :H: |'-.__     \\\\" +
+                " \n                                      //       '-._| :H: |'-.__     \\\\" +
+                " \n                                     ||                      \\\\    \\|" +
+                " \n                                     ||                        \\\\    '" +
+                " \n                                     |/                          \\\\" +
+                " \n                                                                   ||" +
+                " \n                                                                   ||" +
+                " \n                                                                   \\" +
+                " \n                                                                     '" +
+                " \n---------------------------------------------------------------------------------" +
+                " \n You make it to the left room and find it covered in cobwebs" +
                 " \n A shadow is casted behind you when you walk farther in" +
-                " \n You feel many eyes watching, just as your about to turn around your body is stuck," +
-                " \n Many webs have wrapped around you and a Man-Eatting spider apears, Comsuing your flesh like a bug. 07:07";
+                " \n You feel many eyes watching you, just as your about to turn around you're stuck in place." +
+                " \n Many webs have wrapped around you and a Man-Eating spider appears, comsuming your flesh. 07:07";
 
             storyTable[08] = "                                     Page Nine" +
-                " \n The Right Room seemed to be the right choice" +
-                " \n Some Great, fancy looking food are platted in the middle of the room on a steel table" +
-                " \n Option A - Eat Food" +
-                " \n Option B - Contuine ForWard 11:12";
+                " \n |                  |          _____________________________________                 |                   | " +
+                " \n |                  |          |                                   |                 |                   |" +
+                " \n |                  |          |                                   |                 |                   | " +
+                " \n |                  |          |                                   |                 |                   | " +
+                " \n |                  |          |                                   |                 |                   |" +
+                " \n |                  |          |                                   |                 |                   |" +
+                " \n |                  |          |                ___                |                 |                   |" +
+                " \n |                  |          |              -{   }-              |                 |                   |" +
+                " \n |                  |          |            _{_______}_            |                 |                   |" +
+                " \n |                  |          |       __()__|_______|__()___      |                 |                   |" +
+                " \n |                  |          |        |                  |       |                 |                   |" +
+                " \n |           ___---------------|--------|                  |-------|-----------------------___           |" +
+                " \n ______-----                            |__________________|                                   -----_______" +
+                " \n ---------------------------------------------------------------------------------------------------------" +
+                " \n The right room seemed to be the right choice" +
+                " \n Some fancy looking dishes are platted in the middle of the room on a steel table" +
+                " \n Option A - Eat the Cake!" +
+                " \n Option B - Contuine Forward 10:12";
 
             storyTable[09] = "                                     Page Ten" +
-                " \n You reach for the knife Well knowing that the decision your about to make is going to hinder the rest of your experince in this Death Trap aswell as the rest of your life if you make it out." +
+                 " \n __________     __________" +
+                " \n                                  /    -----  \\  //  -----   \\" +
+                " \n                                 /         \\  \\//  /            \\" +
+                " \n                               /         ___----------/__        \\" +
+                " \n                               |        /                \\       |  " +
+                " \n                               |       / _____      ______\\      |            " +
+                " \n                               |        _-----\\    /-----_       |   " +
+                " \n                               |       *   ()         ()  *      |   " +
+                " \n                               |      |        /  \\       |     |   " +
+                " \n                               |      \\       (    )      //     |   " +
+                " \n                               /        |       `  `      |        \\  " +
+                " \n                              /         \\    _---- _    /         \\     " +
+                " \n                             |          \\   -       -   /           |   " +
+                " \n                             |            -____________-             |" +
+                " \n                             |            /              \\          |" +
+                " \n-------------------------------------------------------------------------------------------------------------------------" + 
+                " \n You reach for the knife Well knowing that the decision your about to make is going to hinder the rest of your experince in this death trap." +
+                " \n Aswell as the rest of your life, if you make it out." +
                 " \n Holding up the knife like out of a horror movie, just about to bring it down upon your foot, the door swings open releasing your foot and a Woman jumps through just like you did." +
-                " \n She Catches a glimps of you still holding up the knife, fearful she backs up telling you to 'Stay Away'" +
-                " \n " +
-                " \n 14:14";
+                " \n She catches a glimps of you still holding up the knife, fearful, she backs up telling you to 'Stay Away'" +
+                " \n Press Any Button To Continue 14:14";
 
             storyTable[10] = "                                  Page Eleven" +
-                " \n Eating The Food it you start to feel a bit funny, grasping at your throat you uncontrollaby start coughing, blood being splirted out with each exhale." +
-                " \n You dropping dead in the middle of the room 10:10";
+                " \n" +
+                " \n                             ___________________________                " +
+                " \n                            /    -    -    -   -   -   \\=              " +
+                " \n                            | ~~~ ~~~~ ~~~~ ~~~ ~~~ ~~~ |               " +
+                " \n                            |  .          .           . (               " +
+                " \n                   _________|                           '              " +
+                " \n                  /  ~         \\---------------------------/            " +
+                " \n                  |        ~             ~              ~   |              " +            
+                " \n            ______|   .        .        .          .        . _    __    " +
+                " \n           /  ~     \\----------------------------------------   ---     \\" +
+                " \n           |      ~          ~            ~               ~             |" +
+                " \n           |                                                            |" +
+                " \n           |______        .      .          .         .   .       ______|" +
+                " \n                 -----------_____________________________--------" +
+                " \n--------------------------------------------------------------------------------------------------------------" +
+                " \n After eating The Cake you start to feel a bit funny, grasping at your throat you uncontrollaby start coughing," +
+                " \n blood splurting out with each exhale. " +
+                " \n You Drop Dead In The Middle Of The Room 10:10";
 
             storyTable[11] = "                                  Page Twelve" +
+                " \n                                   __________     __________" +
+                " \n                                  /    -----  \\  //  -----   \\" +
+                " \n                                 /         \\  \\//  /            \\" +
+                " \n                               /         ___----------/__        \\" +
+                " \n                               |        /                \\       |  " +
+                " \n                               |       / _____      ______\\      |            " +
+                " \n                               |        _-----\\    /-----_       |   " +
+                " \n                               |       *    ()         ()  *     |   " +
+                " \n                               |      |        /  \\       |     |   " +
+                " \n                               |      \\       (    )      //     |   " +
+                " \n                               /        |       `  `      |        \\  " +
+                " \n                              /         \\    __---- __   /         \\     " +
+                " \n                             |          \\      ----     /            |   " +
+                " \n                             |            -____________-             |" +
+                " \n                             |            /              \\          |" +
+                " \n-------------------------------------------------------------------------------------------------------------------------" +
                 " \n The Thought of cutting of your own foot sickens you, the knife might be useful later though, putting it in your pocket." +
-                " \n You sit and wait for it feels like days but probably more like hours have past, just when your about to pull out the knife and contemplate cutting your foot off again," +
+                " \n You sit and wait for hours, but feels like days." +
+                " \n Just when your about to pull out the knife and contemplate cutting your foot off again," +
                 " \n The door swings open releasing your foot and a Woman jumps through it just like you did prior" +
                 " \n She catches a glimps of you, reaches for your hand to help you up." +
-                " \n " +
-                " \n  14:14";
+                " \n  Press Any Button To Continue 14:14";
 
-            storyTable[12] = "                                 Page Thirdteen" +
-                " \n Passing up the many elegant dishes was a very hard desison walking past them your still drooling, walking into the new room" +
-                " \n You see a blinding Light following it you escape the Facility with no Scratches " +
+            storyTable[12] = "                                 Page Thirteen" +
+                " \n Passing up the many elegant dishes was a very hard decison, walking past them you're still drooling, walking into the new room." +
+                " \n You see a blinding Light, following it you escape the facility with no scratches " +
                 " \n Good Job! 12:12";
 
-            storyTable[14] = "                                Page Fithteen" +
-                " \n A Voice booms from all sides of the room." +
+            storyTable[14] = "                                Page Fifthteen" +
+                " \n A voice booms from all sides of the room." +
                 " \n ' ONLY ONE CAN PASS '" +
                 " \n You both intensely stare at each other each waiting for each others move." +
                 " \n Option A - KILL HER" +
@@ -154,20 +315,22 @@ namespace InterativeFiction
 
             storyTable[15] = "                                Page Sixteen" +
                 " \n You take the knife, the woman instanly knows whats going to happen, trying to run away from you" +
-                " \n You case her to a couner of the room, no where for her to go, she screams admitting defeat, curling into a fetal postion as you aproach closer. " +
-                " \n With no empathy you stabe her in the arm as she trys to protect her face, terror filled, agony screams realse from her. " +
-                " \n You stab until the screams and body looses all life." +
-                " \n A door slides open with a metalic screach, blinding light shinning through. " +
-                " \n Covered in the Womans blood you exit the facility, knife still in hand with no Regrets you Sicko 15:15";
+                " \n You chase her into a corner of the room, nowhere for her to go, she screams admitting defeat, curling into a fetal postion as you approach." +
+                " \n With no empathy you stab her in the arm as she trys to protect her face, terror filled, agonizing screams release from her. " +
+                " \n You stab until the screams stop and her body loses all life." +
+                " \n A door slides open with a metallic screech, blinding light shining through. " +
+                " \n Covered in the woman's blood you exit the facility, knife still in hand with no regrets. " +
+                " \n You Sicko..... 15:15";
 
-            storyTable[16] = "                                Page SevenTeen" + 
+            storyTable[16] = "                                Page Seventeen" + 
                 " \n You see that the woman starts to cry, not being strong enough to take the stress of not knowing if shes going to die." + 
                 " \n You lay down the knife suggesting your not going to hurt her. " + 
                 " \n The voice booms again." + 
                 " \n 'ONE MUST DIE' " + 
                 " \n Walls start to close in knowing both of you will, you decide to run back to the Spike pit room throwing yourself off of it" +
                 " \n A door slides open with a metalic screach, blinding light shinning through. " +
-                " \n The Woman walks through unharmed, you saving her life, being a Hero! 16:16";
+                " \n The Woman walks through unharmed, you saving her life." +
+                " \n You are a Hero! 16:16";
         }
 
 
@@ -186,8 +349,8 @@ namespace InterativeFiction
         }
         static void DeathChecks()
         {
-            if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Freezing")
-               || storyTable[currentPage].Contains("Dead") || storyTable[currentPage].Contains("Man-Eatting"))
+            if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Freeze")
+               || storyTable[currentPage].Contains("dead") || storyTable[currentPage].Contains("Man-Eating"))
             {
                 
                 GameOver();
@@ -335,16 +498,17 @@ namespace InterativeFiction
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("               |||||||    ||||     |    |    |||||||     ||||||    |     ||   |||||||   ||||||    ||||");
-            Console.WriteLine("              ||||||||   ||||||   |||  |||  |||||| |    |||  |||  ||     ||  |||||| |  |||  |||   ||||");
-            Console.WriteLine("              ||        |||   ||  |||  |||  ||    |     ||    ||  ||     ||  ||    |   ||    ||   ||||");
-            Console.WriteLine("              ||        ||    ||  ||||||||  ||          ||    ||  ||     ||  ||        ||    ||   ||||");
-            Console.WriteLine("              ||  ||||  ||    ||  ||||||||  ||||||||    ||    ||  ||     ||  ||||||||  ||    ||   ||||");
-            Console.WriteLine("              ||   |||  ||    ||  || || ||  ||||||||    ||    ||  ||     ||  ||||||||  ||||||||    || ");
-            Console.WriteLine("               |    |   ||||||||  ||    ||  ||          ||    ||  ||     ||  ||        |||||||     || ");
-            Console.WriteLine("              ||    ||  ||    ||  ||    ||  ||          ||    ||   ||   ||   ||        ||  ||         ");
-            Console.WriteLine("              ||||||||  ||    ||  ||    ||   |||||||     |||||||   |||||||    |||||||  ||   ||     || ");
-            Console.WriteLine("               |||  |   |      |  ||    ||   |||| ||      |||||     |||       ||||| |  |     ||    || ");
+            Console.WriteLine("     |||||||    ||||     |    |    |||||||     ||||||    |     ||   |||||||   ||||||    ||||");
+            Console.WriteLine("    ||||||||   ||||||   |||  |||  |||||| |    |||  |||  ||     ||  |||||| |  |||  |||   ||||");
+            Console.WriteLine("    ||        |||   ||  |||  |||  ||    |     ||    ||  ||     ||  ||    |   ||    ||   ||||");
+            Console.WriteLine("    ||        ||    ||  ||||||||  ||          ||    ||  ||     ||  ||        ||    ||   ||||");
+            Console.WriteLine("    ||  ||||  ||    ||  ||||||||  ||||||||    ||    ||  ||     ||  ||||||||  ||    ||   ||||");
+            Console.WriteLine("    ||   |||  ||    ||  || || ||  ||||||||    ||    ||  ||     ||  ||||||||  ||||||||    || ");
+            Console.WriteLine("     |    |   ||||||||  ||    ||  ||          ||    ||  ||     ||  ||        |||||||     || ");
+            Console.WriteLine("    ||    ||  ||    ||  ||    ||  ||          ||    ||   ||   ||   ||        ||  ||         ");
+            Console.WriteLine("    ||||||||  ||    ||  ||    ||   |||||||     |||||||   |||||||    |||||||  ||   ||     || ");
+            Console.WriteLine("     |||  |   |      |  ||    ||   |||| ||      |||||     |||       ||||| |  |     ||    || ");
+            Console.ResetColor();
            
             
         }
@@ -357,16 +521,16 @@ namespace InterativeFiction
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("                 |||  |||   ||||||     |     ||    ||    ||   ||   |    ||  ||||");
-            Console.WriteLine("                 |||  |||  |||  |||   ||     ||    ||    ||   ||  |||   ||  ||||");
-            Console.WriteLine("                 |||  |||  ||    ||   ||     ||    ||    ||       ||||  ||  ||||");
-            Console.WriteLine("                 |||  |||  ||    ||   ||     ||    ||    ||   ||  || || ||  ||||");
-            Console.WriteLine("                  ||  ||   ||    ||   ||     ||    || || ||   ||  || || ||  ||||");
-            Console.WriteLine("                   ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
-            Console.WriteLine("                   ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
-            Console.WriteLine("                    ||     ||    ||   ||     ||    |||  |||   ||  || || ||      ");
-            Console.WriteLine("                    ||      |||||||   ||   ||      |||  |||   ||  ||  ||||   || ");
-            Console.WriteLine("                    ||       |||||    |||||||       |    |    ||  ||    ||   || ");
+            Console.WriteLine("    |||  |||   ||||||     |     ||    ||    ||   ||   |    ||  ||||");
+            Console.WriteLine("    |||  |||  |||  |||   ||     ||    ||    ||   ||  |||   ||  ||||");
+            Console.WriteLine("    |||  |||  ||    ||   ||     ||    ||    ||       ||||  ||  ||||");
+            Console.WriteLine("    |||  |||  ||    ||   ||     ||    ||    ||   ||  || || ||  ||||");
+            Console.WriteLine("     ||  ||   ||    ||   ||     ||    || || ||   ||  || || ||  ||||");
+            Console.WriteLine("      ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
+            Console.WriteLine("      ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
+            Console.WriteLine("       ||     ||    ||   ||     ||    |||  |||   ||  || || ||      ");
+            Console.WriteLine("       ||      |||||||   ||   ||      |||  |||   ||  ||  ||||   || ");
+            Console.WriteLine("       ||       |||||    |||||||       |    |    ||  ||    ||   || ");
             Console.ResetColor();
 
         }
