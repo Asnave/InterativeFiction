@@ -15,6 +15,7 @@ namespace InterativeFiction
         static bool ChoiceA = false;
         static bool ChoiceB = false;
         static bool CorrectedText = false;
+        static bool PlayerDead = false;
         
        
 
@@ -29,12 +30,17 @@ namespace InterativeFiction
             GameTitle();
             while (gameOver == false)
             {
-                
+                if (PlayerDead == true)
+                {
+                    gameOver = true;
+                }
                 Story(currentPage);
                 PageCorrector();
                 Inputs();
+                Options();
                 Console.Clear();
-                
+
+             
 
             }
 
@@ -95,7 +101,7 @@ namespace InterativeFiction
                 " \n Option A - Cut Off Foot" +
                 " \n Option B - Sit And Wait 09:11";
 
-            storyTable[06] = "                                      Page Seven" +
+            storyTable[06] = "                                           Page Seven" +
                 " \n Spriting as fast as you can to the Right Room, well knowing if you choose the wrong door you could possibly end up dead the same way or even more gruesome.  " +
                 " \n Its clear in any situation where its life or death we will choose to stick it out as long as we can." + 
                 " \n                                   You sucuessfully make it to the new room. " +
@@ -107,7 +113,7 @@ namespace InterativeFiction
                 " \n You make it to the Left room and find it covered in cobwebs" +
                 " \n A shadow is casted behind you when you walk farther in" +
                 " \n You feel many eyes watching, just as your about to turn around your body is stuck," +
-                " \n Many webs have wrapped around you and a Man Eatting spider apears, Comsuing your flesh like a bug. 07:07";
+                " \n Many webs have wrapped around you and a Man-Eatting spider apears, Comsuing your flesh like a bug. 07:07";
 
             storyTable[08] = "                                     Page Nine" +
                 " \n The Right Room seemed to be the right choice" +
@@ -173,9 +179,13 @@ namespace InterativeFiction
 
         static void DeathChecks()
         {
-           if (storyTable[currentPage].Contains("dying"))
+            if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Death") || storyTable[currentPage].Contains("Sicko") 
+              || storyTable[currentPage].Contains("die") || storyTable[currentPage].Contains("Dead") || storyTable[currentPage].Contains("Man-Eatting"))
             {
+                
                 GameOver();
+                PlayerDead = true;
+               
             }
         }
         static void Options()
@@ -229,7 +239,6 @@ namespace InterativeFiction
             {
 
                 Console.Write(pageHider);
-                Options();
                 DeathChecks();
 
 
@@ -312,16 +321,22 @@ namespace InterativeFiction
 
         public static void GameOver()
         {
-            Console.WriteLine("                  |||||||    ||||     |    |    |||||||     ||||||    |     ||   |||||||   ||||||    ||||");
-            Console.WriteLine("                 ||||||||   ||||||   |||  |||  |||||| |    |||  |||  ||     ||  |||||| |  |||  |||   ||||");
-            Console.WriteLine("                 ||        |||   ||  |||  |||  ||    |     ||    ||  ||     ||  ||    |   ||    ||   ||||");
-            Console.WriteLine("                 ||        ||    ||  ||||||||  ||          ||    ||  ||     ||  ||        ||    ||   ||||");
-            Console.WriteLine("                 ||  ||||  ||    ||  ||||||||  ||||||||    ||    ||  ||     ||  ||||||||  ||    ||   ||||");
-            Console.WriteLine("                 ||   |||  ||    ||  || || ||  ||||||||    ||    ||  ||     ||  ||||||||  ||||||||    || ");
-            Console.WriteLine("                  |    |   ||||||||  ||    ||  ||          ||    ||  ||     ||  ||        |||||||     || ");
-            Console.WriteLine("                 ||    ||  ||    ||  ||    ||  ||          ||    ||   ||   ||   ||        ||  ||         ");
-            Console.WriteLine("                 ||||||||  ||    ||  ||    ||   |||||||     |||||||   |||||||    |||||||  ||   ||     || ");
-            Console.WriteLine("                  |||  |   |      |  ||    ||   |||| ||      |||||     |||       ||||| |  |     ||    || ");
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("               |||||||    ||||     |    |    |||||||     ||||||    |     ||   |||||||   ||||||    ||||");
+            Console.WriteLine("              ||||||||   ||||||   |||  |||  |||||| |    |||  |||  ||     ||  |||||| |  |||  |||   ||||");
+            Console.WriteLine("              ||        |||   ||  |||  |||  ||    |     ||    ||  ||     ||  ||    |   ||    ||   ||||");
+            Console.WriteLine("              ||        ||    ||  ||||||||  ||          ||    ||  ||     ||  ||        ||    ||   ||||");
+            Console.WriteLine("              ||  ||||  ||    ||  ||||||||  ||||||||    ||    ||  ||     ||  ||||||||  ||    ||   ||||");
+            Console.WriteLine("              ||   |||  ||    ||  || || ||  ||||||||    ||    ||  ||     ||  ||||||||  ||||||||    || ");
+            Console.WriteLine("               |    |   ||||||||  ||    ||  ||          ||    ||  ||     ||  ||        |||||||     || ");
+            Console.WriteLine("              ||    ||  ||    ||  ||    ||  ||          ||    ||   ||   ||   ||        ||  ||         ");
+            Console.WriteLine("              ||||||||  ||    ||  ||    ||   |||||||     |||||||   |||||||    |||||||  ||   ||     || ");
+            Console.WriteLine("               |||  |   |      |  ||    ||   |||| ||      |||||     |||       ||||| |  |     ||    || ");
            
             
         }
