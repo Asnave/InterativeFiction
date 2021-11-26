@@ -30,17 +30,17 @@ namespace InterativeFiction
             GameTitle();
             while (gameOver == false)
             {
+
                 if (PlayerDead == true)
                 {
                     gameOver = true;
                 }
+
                 Story(currentPage);
                 PageCorrector();
                 Inputs();
                 Options();
                 Console.Clear();
-
-             
 
             }
 
@@ -119,14 +119,14 @@ namespace InterativeFiction
                 " \n The Right Room seemed to be the right choice" +
                 " \n Some Great, fancy looking food are platted in the middle of the room on a steel table" +
                 " \n Option A - Eat Food" +
-                " \n Option B - Contuine ForWard 11:13";
+                " \n Option B - Contuine ForWard 11:12";
 
             storyTable[09] = "                                     Page Ten" +
                 " \n You reach for the knife Well knowing that the decision your about to make is going to hinder the rest of your experince in this Death Trap aswell as the rest of your life if you make it out." +
                 " \n Holding up the knife like out of a horror movie, just about to bring it down upon your foot, the door swings open releasing your foot and a Woman jumps through just like you did." +
                 " \n She Catches a glimps of you still holding up the knife, fearful she backs up telling you to 'Stay Away'" +
-                " \n Option A - -------" +
-                " \n Option B - ------- 14:14";
+                " \n " +
+                " \n 14:14";
 
             storyTable[10] = "                                  Page Eleven" +
                 " \n Eating The Food it you start to feel a bit funny, grasping at your throat you uncontrollaby start coughing, blood being splirted out with each exhale." +
@@ -137,8 +137,8 @@ namespace InterativeFiction
                 " \n You sit and wait for it feels like days but probably more like hours have past, just when your about to pull out the knife and contemplate cutting your foot off again," +
                 " \n The door swings open releasing your foot and a Woman jumps through it just like you did prior" +
                 " \n She catches a glimps of you, reaches for your hand to help you up." +
-                " \n Option A - ------" +
-                " \n Option B - ------ 14:14";
+                " \n " +
+                " \n  14:14";
 
             storyTable[12] = "                                 Page Thirdteen" +
                 " \n Passing up the many elegant dishes was a very hard desison walking past them your still drooling, walking into the new room" +
@@ -170,17 +170,24 @@ namespace InterativeFiction
                 " \n The Woman walks through unharmed, you saving her life, being a Hero! 16:16";
         }
 
-        
-        
-      
-                         
 
-        
 
+
+
+        static void WinChecks()
+        {
+            if (storyTable[currentPage].Contains("Hero") || storyTable[currentPage].Contains("escape") || storyTable[currentPage].Contains("Sicko"))
+            {
+
+                YouWin();
+                PlayerDead = true;
+
+            }
+        }
         static void DeathChecks()
         {
-            if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Death") || storyTable[currentPage].Contains("Sicko") 
-              || storyTable[currentPage].Contains("die") || storyTable[currentPage].Contains("Dead") || storyTable[currentPage].Contains("Man-Eatting"))
+            if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Freezing")
+               || storyTable[currentPage].Contains("Dead") || storyTable[currentPage].Contains("Man-Eatting"))
             {
                 
                 GameOver();
@@ -240,6 +247,7 @@ namespace InterativeFiction
 
                 Console.Write(pageHider);
                 DeathChecks();
+                WinChecks();
 
 
             }
@@ -321,7 +329,7 @@ namespace InterativeFiction
 
         public static void GameOver()
         {
-
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
@@ -343,9 +351,24 @@ namespace InterativeFiction
 
         public static void YouWin()
         {
-            Console.WriteLine("you win");
-            Console.ReadKey(true);
-            gameOver = true;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("                 |||  |||   ||||||     |     ||    ||    ||   ||   |    ||  ||||");
+            Console.WriteLine("                 |||  |||  |||  |||   ||     ||    ||    ||   ||  |||   ||  ||||");
+            Console.WriteLine("                 |||  |||  ||    ||   ||     ||    ||    ||       ||||  ||  ||||");
+            Console.WriteLine("                 |||  |||  ||    ||   ||     ||    ||    ||   ||  || || ||  ||||");
+            Console.WriteLine("                  ||  ||   ||    ||   ||     ||    || || ||   ||  || || ||  ||||");
+            Console.WriteLine("                   ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
+            Console.WriteLine("                   ||||    ||    ||   ||     ||    ||||||||   ||  || || ||   || ");
+            Console.WriteLine("                    ||     ||    ||   ||     ||    |||  |||   ||  || || ||      ");
+            Console.WriteLine("                    ||      |||||||   ||   ||      |||  |||   ||  ||  ||||   || ");
+            Console.WriteLine("                    ||       |||||    |||||||       |    |    ||  ||    ||   || ");
+            Console.ResetColor();
+
         }
 
         
