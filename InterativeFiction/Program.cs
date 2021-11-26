@@ -34,6 +34,7 @@ namespace InterativeFiction
                 PageCorrector();
                 Inputs();
                 Console.Clear();
+                
 
             }
 
@@ -172,12 +173,9 @@ namespace InterativeFiction
 
         static void DeathChecks()
         {
-            if (storyTable[currentPage].Contains("snakes"))
+           if (storyTable[currentPage].Contains("dying"))
             {
-                
-
-
-             
+                GameOver();
             }
         }
         static void Options()
@@ -232,12 +230,16 @@ namespace InterativeFiction
 
                 Console.Write(pageHider);
                 Options();
+                DeathChecks();
+
+
             }
 
             
         }
         static void Inputs()
         {
+            
             PageChanger();
             PageCorrector();
 
@@ -285,17 +287,43 @@ namespace InterativeFiction
 
         public static void GameTitle()
         {
-          
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("          _|||||||||||   |||       |||   ||||||||||||   ||||||||||||||   |||||||||||    |||||||||||||   |||||||||||||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||       |||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||       |||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||      |||");
+            Console.WriteLine("          |||            |||=======|||   |||======|||   |||   ||   |||   |||======||    |||=========    |||=======");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||      |||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||      |||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||      |||");
+            Console.WriteLine("          |||            |||       |||   |||      |||   |||   ||   |||   |||      |||   |||             |||      |||");
+            Console.WriteLine("           ||||||||||||  |||       |||   |||      |||   |||   ||   |||   |||||||||||    |||||||||||||   |||      |||");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("                                             A Text Adventure Game                                                              ");
+            Console.ResetColor();
+            Console.WriteLine("                                            Press any button to begin                                                             ");
             Console.ReadKey(true);
+            Console.Clear();
            
            
         }
 
         public static void GameOver()
         {
-            Console.WriteLine("you Lost");
-            Console.ReadKey(true);
-            gameOver = true;
+            Console.WriteLine("                  |||||||    ||||     |    |    |||||||     ||||||    |     ||   |||||||   ||||||    ||||");
+            Console.WriteLine("                 ||||||||   ||||||   |||  |||  |||||| |    |||  |||  ||     ||  |||||| |  |||  |||   ||||");
+            Console.WriteLine("                 ||        |||   ||  |||  |||  ||    |     ||    ||  ||     ||  ||    |   ||    ||   ||||");
+            Console.WriteLine("                 ||        ||    ||  ||||||||  ||          ||    ||  ||     ||  ||        ||    ||   ||||");
+            Console.WriteLine("                 ||  ||||  ||    ||  ||||||||  ||||||||    ||    ||  ||     ||  ||||||||  ||    ||   ||||");
+            Console.WriteLine("                 ||   |||  ||    ||  || || ||  ||||||||    ||    ||  ||     ||  ||||||||  ||||||||    || ");
+            Console.WriteLine("                  |    |   ||||||||  ||    ||  ||          ||    ||  ||     ||  ||        |||||||     || ");
+            Console.WriteLine("                 ||    ||  ||    ||  ||    ||  ||          ||    ||   ||   ||   ||        ||  ||         ");
+            Console.WriteLine("                 ||||||||  ||    ||  ||    ||   |||||||     |||||||   |||||||    |||||||  ||   ||     || ");
+            Console.WriteLine("                  |||  |   |      |  ||    ||   |||| ||      |||||     |||       ||||| |  |     ||    || ");
+           
+            
         }
 
         public static void YouWin()
