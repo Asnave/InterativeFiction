@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO; 
 
 namespace InterativeFiction
 {
@@ -28,6 +29,9 @@ namespace InterativeFiction
 
 
             GameTitle();
+            StoryFile();
+            Console.ReadKey(true);
+
             while (gameOver == false)
             {
 
@@ -36,10 +40,11 @@ namespace InterativeFiction
                     gameOver = true;
                 }
 
-                Story(currentPage);
-                PageCorrector();
-                Inputs();
-                Console.Clear();
+                // Story(currentPage);
+                // PageCorrector();
+                // Inputs();
+                // Console.Clear();
+                
 
             }
 
@@ -332,7 +337,15 @@ namespace InterativeFiction
                 " \n The Woman walks through unharmed, you saving her life." +
                 " \n You are a Hero! 16:16";
         }
-
+        static void StoryFile()
+        {
+            string[] storyFile;
+            storyFile =File.ReadAllLines(@"Story.txt");
+            Console.WriteLine(storyFile[0]);
+            Console.WriteLine(storyFile[1]);
+            Console.WriteLine(storyFile[2]);
+            Console.WriteLine(storyFile[3]);
+        }
 
 
 
