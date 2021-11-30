@@ -342,30 +342,8 @@ namespace InterativeFiction
             string[] storyFile;
             storyFile =File.ReadAllLines(@"Story.txt");
 
-            if (currentPage == 01)
-            {
-                Console.WriteLine(storyFile[0]);
-                Console.WriteLine(storyFile[1]);
-                Console.WriteLine(storyFile[2]);
-                Console.WriteLine(storyFile[3]);
-                Console.WriteLine(storyFile[4]);
-                Console.WriteLine(storyFile[5]);
-                Console.WriteLine(storyFile[6]);
-                Console.WriteLine(storyFile[7]);
-                Console.WriteLine(storyFile[8]);
-                Console.WriteLine(storyFile[9]);
-                Console.WriteLine(storyFile[10]);
-                Console.WriteLine(storyFile[11]);
-                Console.WriteLine(storyFile[12]);
-                Console.WriteLine(storyFile[13]);
-                Console.WriteLine(storyFile[14]);
-                Console.WriteLine(storyFile[15]);
-                Console.WriteLine(storyFile[16]);
-                Console.WriteLine(storyFile[17]);
-                Console.WriteLine(storyFile[18]);
-            
-            }
-         
+            Console.WriteLine(storyFile[0]);
+
         }
 
 
