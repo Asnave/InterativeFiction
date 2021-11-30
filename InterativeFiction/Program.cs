@@ -342,7 +342,11 @@ namespace InterativeFiction
             string[] storyFile;
             storyFile =File.ReadAllLines(@"Story.txt");
 
-            Console.WriteLine(storyFile[0]);
+            for (int i = 0; i <= 18; i++)
+            {
+                Console.WriteLine(storyFile[i]);
+            }
+           // Console.Write(storyFile[0]);
 
         }
 
