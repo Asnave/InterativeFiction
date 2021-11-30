@@ -29,22 +29,22 @@ namespace InterativeFiction
 
 
             GameTitle();
-            StoryFile();
-            Console.ReadKey(true);
+      
 
-            while (gameOver == false)
+            while(gameOver == false)
             {
-
+                currentPage = 1;
                 if (PlayerDead == true)
                 {
                     gameOver = true;
                 }
-
+                StoryFile(currentPage);
+                Console.ReadKey();
                 // Story(currentPage);
                 // PageCorrector();
                 // Inputs();
                 // Console.Clear();
-                
+
 
             }
 
@@ -337,14 +337,35 @@ namespace InterativeFiction
                 " \n The Woman walks through unharmed, you saving her life." +
                 " \n You are a Hero! 16:16";
         }
-        static void StoryFile()
+        static void StoryFile(int storyLocation)
         {
             string[] storyFile;
             storyFile =File.ReadAllLines(@"Story.txt");
-            Console.WriteLine(storyFile[0]);
-            Console.WriteLine(storyFile[1]);
-            Console.WriteLine(storyFile[2]);
-            Console.WriteLine(storyFile[3]);
+
+            if (currentPage == 01)
+            {
+                Console.WriteLine(storyFile[0]);
+                Console.WriteLine(storyFile[1]);
+                Console.WriteLine(storyFile[2]);
+                Console.WriteLine(storyFile[3]);
+                Console.WriteLine(storyFile[4]);
+                Console.WriteLine(storyFile[5]);
+                Console.WriteLine(storyFile[6]);
+                Console.WriteLine(storyFile[7]);
+                Console.WriteLine(storyFile[8]);
+                Console.WriteLine(storyFile[9]);
+                Console.WriteLine(storyFile[10]);
+                Console.WriteLine(storyFile[11]);
+                Console.WriteLine(storyFile[12]);
+                Console.WriteLine(storyFile[13]);
+                Console.WriteLine(storyFile[14]);
+                Console.WriteLine(storyFile[15]);
+                Console.WriteLine(storyFile[16]);
+                Console.WriteLine(storyFile[17]);
+                Console.WriteLine(storyFile[18]);
+            
+            }
+         
         }
 
 
