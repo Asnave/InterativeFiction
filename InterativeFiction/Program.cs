@@ -11,34 +11,38 @@ namespace InterativeFiction
     {
         
         static bool gameOver = false;
-        static string[] storyTable = new string[20];
+        static string[] storyTable = new string[storySize];
         static int currentPage = 0;
         static bool ChoiceA = false;
         static bool ChoiceB = false;
         static bool CorrectedText = false;
         static bool PlayerDead = false;
+        static int storySize;
         
        
 
         static void Main(string[] args)
         {
-
+            
             GameTitle();
+            Inisalization();
       
 
             while(gameOver == false)
             {
-                currentPage = 1;
+                
                 if (PlayerDead == true)
                 {
                     gameOver = true;
                 }
+                Console.WriteLine(storySize);
+                Console.ReadKey();
                 StoryFile(currentPage);
                 Console.ReadKey();
                 // Story(currentPage);
-                // PageCorrector();
-                // Inputs();
-                // Console.Clear();
+                  PageCorrector();
+                  Inputs();
+                  Console.Clear();
 
 
             }
@@ -334,17 +338,18 @@ namespace InterativeFiction
         }
         static void StoryFile(int storyLocation)
         {
-            string[] storyFile;
-            storyFile =File.ReadAllLines(@"Story.txt");
+            
+            storyTable = File.ReadAllLines("Story.txt");
 
-            for (int i = 0; i <= 18; i++)
-            {
-                Console.WriteLine(storyFile[i]);
-            }
+            
            // Console.Write(storyFile[0]);
            
         }
 
+        static void Inisalization()
+        {
+            storySize = File.ReadLines("Story.txt").Count();
+        }
 
 
 
@@ -385,23 +390,16 @@ namespace InterativeFiction
         {
             
             string choiceA = 
-                // [X] "xyz" AA:BB --- .Removes the BB option ( so it doesnt read it )
                 storyTable[currentPage].Remove(storyTable[currentPage].Length - 3);
-            
 
-
-                // Takes [X] "xyz" AA and reads the AA part 
                 choiceA = choiceA.Substring(choiceA.Length - 2);
-
-
             string choiceB =
-                // Takes [X] "xyz" BB and reads the BB part 
                 storyTable[currentPage].Substring(storyTable[currentPage].Length - 2);
-
-
-                // Removes The AA:BB page markers from string before printing 
+         
             string pageHider = 
                 storyTable[currentPage].Remove(storyTable[currentPage].Length - 5);
+
+            string Text = pageHider.Replace("\\n", "\n");
 
 
             if (ChoiceA == true)
@@ -419,7 +417,11 @@ namespace InterativeFiction
             if (CorrectedText == true)
             {
 
-                Console.Write(pageHider);
+                int len = Text.Length;
+                for (int i = 0; i < len; i++)
+                {
+                    Console.Write(Text[i]);
+                }
                 DeathChecks();
                 WinChecks();
 
