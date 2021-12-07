@@ -35,10 +35,7 @@ namespace InterativeFiction
                 {
                     gameOver = true;
                 }
-                Console.WriteLine(storySize);
-                Console.ReadKey();
                 StoryFile(currentPage);
-                Console.ReadKey();
                 // Story(currentPage);
                   PageCorrector();
                   Inputs();
@@ -416,7 +413,7 @@ namespace InterativeFiction
 
             if (CorrectedText == true)
             {
-
+                //Console.WriteLine(storyTable[currentPage].Length);
                 int len = Text.Length;
                 for (int i = 0; i < len; i++)
                 {
