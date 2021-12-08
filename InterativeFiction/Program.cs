@@ -18,7 +18,7 @@ namespace InterativeFiction
         static bool CorrectedText = false;
         static bool PlayerDead = false;
         static int storySize;
-        
+        static int saves = 1;
        
 
         static void Main(string[] args)
@@ -36,7 +36,6 @@ namespace InterativeFiction
                     gameOver = true;
                 }
                 StoryFile(currentPage);
-                // Story(currentPage);
                   PageCorrector();
                   Inputs();
                   Console.Clear();
@@ -371,16 +370,16 @@ namespace InterativeFiction
                
             }
         }
-        static void Options()
+        static void Save()
         {
-          if(storyTable[currentPage].Contains("Page"))
+          using (StreamWriter sw = new StreamWriter("SaveData.txt"))
             {
-                
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("Option A - Press A   Option B - Press B");
-                Console.ResetColor();
+                saves = saves - 1;
+                sw.WriteLine(currentPage.ToString());
+                sw.WriteLine(saves.ToString());
+                sw.WriteLine(File.GetLastWriteTime("SaveData.txt"));
+                Console.WriteLine("You Saved Your Game Sucessfully!");
+                sw.Close();
             }
         }
         static void PageChanger()
@@ -447,6 +446,10 @@ namespace InterativeFiction
                 ChoiceB = true;
                 ChoiceA = false;
                 
+            }
+            else if (Input.Key == ConsoleKey.S)
+            {
+                Save();
             }
             PageChanger();
 
