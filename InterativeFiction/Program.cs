@@ -19,6 +19,8 @@ namespace InterativeFiction
         static bool PlayerDead = false;
         static int storySize;
         static int saves = 1;
+        static string savedPageData;
+        static string saveCounter;
        
 
         static void Main(string[] args)
@@ -35,6 +37,7 @@ namespace InterativeFiction
                 {
                     gameOver = true;
                 }
+                LoadSave();
                 StoryFile(currentPage);
                   PageCorrector();
                   Inputs();
@@ -345,9 +348,22 @@ namespace InterativeFiction
         static void Inisalization()
         {
             storySize = File.ReadLines("Story.txt").Count();
+            
         }
 
+        static void LoadSave()
+        {
+            using (StreamReader sr = new StreamReader("SaveData.txt"))
+            {
+                savedPageData = sr.ReadLine();
+                saveCounter = sr.ReadLine();
 
+            }
+
+            int.TryParse(savedPageData, out currentPage);
+            int.TryParse(saveCounter, out saves);
+
+        }
 
         static void WinChecks()
         {
@@ -379,7 +395,7 @@ namespace InterativeFiction
                 sw.WriteLine(saves.ToString());
                 sw.WriteLine(File.GetLastWriteTime("SaveData.txt"));
                 Console.WriteLine("You Saved Your Game Sucessfully!");
-                sw.Close();
+                
             }
         }
         static void PageChanger()
@@ -449,7 +465,10 @@ namespace InterativeFiction
             }
             else if (Input.Key == ConsoleKey.S)
             {
+                Console.Clear();
                 Save();
+                Console.ReadKey(true);
+                
             }
             PageChanger();
 
