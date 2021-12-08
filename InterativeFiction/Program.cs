@@ -236,7 +236,7 @@ namespace InterativeFiction
                 " \n Option B - Contuine Forward 10:12";
 
             storyTable[09] = "                                     Page Ten" +
-                 " \n __________     __________" +
+                 "\n                                    __________     __________" +
                 " \n                                  /    -----  \\  //  -----   \\" +
                 " \n                                 /         \\  \\//  /            \\" +
                 " \n                               /         ___----------/__        \\" +
@@ -363,7 +363,7 @@ namespace InterativeFiction
         static void DeathChecks()
         {
             if (storyTable[currentPage].Contains("dying") || storyTable[currentPage].Contains("Freeze")
-               || storyTable[currentPage].Contains("dead") || storyTable[currentPage].Contains("Man-Eating"))
+               || storyTable[currentPage].Contains("Dead") || storyTable[currentPage].Contains("Man-Eating"))
             {
                 
                 GameOver();
