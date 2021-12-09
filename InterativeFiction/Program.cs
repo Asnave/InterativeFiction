@@ -29,9 +29,7 @@ namespace InterativeFiction
         {
             while (menu == true)
             {
-                GameTitle();
-                MenuInputs();
-                Console.Clear();
+                MenuLoop();
             }
 
             Inisalization();
@@ -57,6 +55,12 @@ namespace InterativeFiction
 
         }
 
+        static void MenuLoop()
+        {
+            GameTitle();
+            MenuInputs();
+            Console.Clear();
+        }
         static void MenuInputs()
         {
             ConsoleKeyInfo Input = Console.ReadKey(intercept: true);
@@ -481,21 +485,28 @@ namespace InterativeFiction
 
                 ChoiceA = true;
                 ChoiceB = false;
-                
+
             }
             else if (Input.Key == ConsoleKey.B)
             {
                 ChoiceB = true;
                 ChoiceA = false;
-                
+
             }
             else if (Input.Key == ConsoleKey.S)
             {
                 Console.Clear();
                 Save();
                 Console.ReadKey(true);
-                
+
             }
+            else if (Input.Key == ConsoleKey.M)
+            {
+                Console.Clear();
+                MenuLoop();
+                menu = true;
+            }
+
             PageChanger();
 
            
