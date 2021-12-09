@@ -55,6 +55,11 @@ namespace InterativeFiction
 
         }
 
+        static void SaveChecks()
+        {
+          
+        }
+
         static void MenuLoop()
         {
             GameTitle();
@@ -72,6 +77,7 @@ namespace InterativeFiction
             }
             else if (Input.Key == ConsoleKey.DownArrow)
             {
+                currentPage = 0;
                 Console.Clear();
                 Console.ReadKey(true);
                 menu = false;
@@ -401,7 +407,12 @@ namespace InterativeFiction
             {
 
                 YouWin();
-                PlayerDead = true;
+                Console.ReadKey(true);
+                Console.Clear();
+                MenuLoop();
+                menu = true;
+
+
 
             }
         }
@@ -412,7 +423,7 @@ namespace InterativeFiction
             {
                 
                 GameOver();
-                PlayerDead = true;
+                
                
             }
         }
