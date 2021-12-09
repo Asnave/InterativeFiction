@@ -21,33 +21,39 @@ namespace InterativeFiction
         static int saves = 1;
         static string savedPageData;
         static string saveCounter;
+        static bool menu = true;
         
        
 
         static void Main(string[] args)
         {
-            
-            GameTitle();
-            MenuInputs();
-            Inisalization();
-      
-
-            while(gameOver == false)
+            while (menu == true)
             {
-                
-                if (PlayerDead == true)
-                {
-                    gameOver = true;
-                }
-                  
-                  StoryFile(currentPage);
-                  PageCorrector();
-                  Inputs();
-                  Console.Clear();
-
-
+                GameTitle();
+                MenuInputs();
+                Console.Clear();
             }
 
+            Inisalization();
+
+            while (menu == false)
+            {
+                while (gameOver == false)
+                {
+
+                    if (PlayerDead == true)
+                    {
+                        gameOver = true;
+                    }
+
+                    StoryFile(currentPage);
+                    PageCorrector();
+                    Inputs();
+                    Console.Clear();
+
+
+                }
+            }
 
         }
 
@@ -58,13 +64,15 @@ namespace InterativeFiction
             {
                 Console.Clear();
                 LoadSave();
+                menu = false;
             }
             else if (Input.Key == ConsoleKey.DownArrow)
             {
                 Console.Clear();
                 Console.ReadKey(true);
-
+                menu = false;
             }
+            
             
         }
         static void Story(int storyLocation)
