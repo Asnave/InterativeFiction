@@ -28,6 +28,7 @@ namespace InterativeFiction
 
         static void Main(string[] args)
         {
+            StoryFileChecks();
             while (PlayerDead  == false)
             {
                 while (menu == true)
@@ -40,6 +41,7 @@ namespace InterativeFiction
 
                 while (menu == false)
                 {
+                    
                     while (gameOver == false)
                     {
 
@@ -47,7 +49,7 @@ namespace InterativeFiction
                         {
                             break;
                         }
-
+                        
                         StoryFile(currentPage);
                         PageCorrector();
                         Inputs();
@@ -61,17 +63,32 @@ namespace InterativeFiction
 
         static void StoryFileChecks()
         {
+
           if (storyTable.Length == 0 || storyTable == null)
             {
-                Console.Clear();
+                
                 Console.WriteLine(" There seems to be no storyFile, Try again when theres a storyfile attached.");
                 Console.WriteLine(" Press any button to continue...");
-                Console.ReadKey();
+                Console.ReadKey(true);
+                Console.Clear();
                 menu = true;
+                gameOver = true;
                 ChoiceA = false;
                 ChoiceB = false;
                 MenuLoop();
 
+            }
+          else if (!File.Exists("Story.txt"))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("There seems to be no storyFile, Try again when theres a storyfile attached.");
+                Console.WriteLine(" Press any button to continue...");
+                Console.ReadKey(true);
+                Console.Clear();
+                Environment.Exit(0);
             }
         }
 
@@ -400,7 +417,7 @@ namespace InterativeFiction
         {
             
             storyTable = File.ReadAllLines("Story.txt");
-
+            
             
            // Console.Write(storyFile[0]);
            
@@ -544,6 +561,7 @@ namespace InterativeFiction
                 Console.Clear();
                 MenuLoop();
                 menu = true;
+                gameOver = true;
             }
 
             PageChanger();
