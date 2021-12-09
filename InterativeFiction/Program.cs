@@ -21,12 +21,14 @@ namespace InterativeFiction
         static int saves = 1;
         static string savedPageData;
         static string saveCounter;
+        
        
 
         static void Main(string[] args)
         {
             
             GameTitle();
+            MenuInputs();
             Inisalization();
       
 
@@ -37,8 +39,8 @@ namespace InterativeFiction
                 {
                     gameOver = true;
                 }
-                LoadSave();
-                StoryFile(currentPage);
+                  
+                  StoryFile(currentPage);
                   PageCorrector();
                   Inputs();
                   Console.Clear();
@@ -49,6 +51,22 @@ namespace InterativeFiction
 
         }
 
+        static void MenuInputs()
+        {
+            ConsoleKeyInfo Input = Console.ReadKey(intercept: true);
+            if (Input.Key == ConsoleKey.UpArrow)
+            {
+                Console.Clear();
+                LoadSave();
+            }
+            else if (Input.Key == ConsoleKey.DownArrow)
+            {
+                Console.Clear();
+                Console.ReadKey(true);
+
+            }
+            
+        }
         static void Story(int storyLocation)
         {
             
@@ -513,11 +531,11 @@ namespace InterativeFiction
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-            Console.WriteLine("                                             A Text Adventure Game                                                              ");
+            Console.WriteLine("                                             A Text Adventure Game                                                   ");
             Console.ResetColor();
-            Console.WriteLine("                                            Press any button to begin                                                             ");
-            Console.ReadKey(true);
-            Console.Clear();
+            Console.WriteLine("                                          CONTINUE -> PRESS UP ARROW                                                 ");
+            Console.WriteLine("                                         NEW GAME -> PRESS DOWN ARROW");
+           
            
            
         }
