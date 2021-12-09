@@ -18,53 +18,69 @@ namespace InterativeFiction
         static bool CorrectedText = false;
         static bool PlayerDead = false;
         static int storySize;
-        static int saves = 1;
+        static int saves;
         static string savedPageData;
         static string saveCounter;
         static bool menu = true;
+        
         
        
 
         static void Main(string[] args)
         {
-            while (menu == true)
+            while (PlayerDead  == false)
             {
-                MenuLoop();
-            }
-
-            Inisalization();
-
-            while (menu == false)
-            {
-                while (gameOver == false)
+                while (menu == true)
                 {
+                    MenuLoop();
+                    
+                }
 
-                    if (PlayerDead == true)
+                Inisalization();
+
+                while (menu == false)
+                {
+                    while (gameOver == false)
                     {
-                        gameOver = true;
+
+                        if (PlayerDead == true)
+                        {
+                            break;
+                        }
+
+                        StoryFile(currentPage);
+                        PageCorrector();
+                        Inputs();
+                        Console.Clear();
+
+
                     }
-
-                    StoryFile(currentPage);
-                    PageCorrector();
-                    Inputs();
-                    Console.Clear();
-
-
                 }
             }
-
         }
 
-        static void SaveChecks()
+        static void StoryFileChecks()
         {
-          
+          if (storyTable.Length == 0 || storyTable == null)
+            {
+                Console.Clear();
+                Console.WriteLine(" There seems to be no storyFile, Try again when theres a storyfile attached.");
+                Console.WriteLine(" Press any button to continue...");
+                Console.ReadKey();
+                menu = true;
+                ChoiceA = false;
+                ChoiceB = false;
+                MenuLoop();
+
+            }
         }
 
         static void MenuLoop()
         {
-            GameTitle();
+            DisplayMenu();
             MenuInputs();
             Console.Clear();
+      
         }
         static void MenuInputs()
         {
@@ -82,6 +98,15 @@ namespace InterativeFiction
                 Console.ReadKey(true);
                 menu = false;
             }
+            else if (Input.Key == ConsoleKey.B)
+            {
+                Console.Clear();
+            }
+            else if (Input.Key == ConsoleKey.A)
+            {
+                Console.Clear();
+            }
+          
             
             
         }
@@ -405,14 +430,13 @@ namespace InterativeFiction
         {
             if (storyTable[currentPage].Contains("Hero") || storyTable[currentPage].Contains("escape") || storyTable[currentPage].Contains("Sicko"))
             {
-
+                
                 YouWin();
                 Console.ReadKey(true);
                 Console.Clear();
-                MenuLoop();
                 menu = true;
-
-
+                gameOver = true;
+                MenuLoop();
 
             }
         }
@@ -423,8 +447,12 @@ namespace InterativeFiction
             {
                 
                 GameOver();
-                
-               
+                Console.ReadKey(true);
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                MenuLoop();
+
             }
         }
         static void Save()
@@ -545,7 +573,7 @@ namespace InterativeFiction
             CorrectedText = true;
         }
 
-        public static void GameTitle()
+        public static void DisplayMenu()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("          _|||||||||||   |||       |||   ||||||||||||   ||||||||||||||   |||||||||||    |||||||||||||   |||||||||||||");
