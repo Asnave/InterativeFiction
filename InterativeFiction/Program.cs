@@ -10,7 +10,7 @@ namespace InterativeFiction
     class Program
     {
         
-        static bool gameOver = false;
+        static bool gameOver;
         static string[] storyTable = new string[storySize];
         static int currentPage = 0;
         static bool ChoiceA = false;
@@ -22,13 +22,13 @@ namespace InterativeFiction
         static string savedPageData;
         static string saveCounter;
         static bool menu = true;
-        
+        static bool isActive;
         
        
 
         static void Main(string[] args)
         {
-            StoryFileChecks();
+            
             while (PlayerDead  == false)
             {
                 while (menu == true)
@@ -38,7 +38,7 @@ namespace InterativeFiction
                 }
 
                 Inisalization();
-
+                
                 while (menu == false)
                 {
                     
@@ -49,7 +49,7 @@ namespace InterativeFiction
                         {
                             break;
                         }
-                        
+                       
                         StoryFile(currentPage);
                         PageCorrector();
                         Inputs();
@@ -64,9 +64,10 @@ namespace InterativeFiction
         static void StoryFileChecks()
         {
 
-          if (storyTable.Length == 0 || storyTable == null)
+
+            if (storySize == 0)
             {
-                
+
                 Console.WriteLine(" There seems to be no storyFile, Try again when theres a storyfile attached.");
                 Console.WriteLine(" Press any button to continue...");
                 Console.ReadKey(true);
@@ -78,18 +79,34 @@ namespace InterativeFiction
                 MenuLoop();
 
             }
-          else if (!File.Exists("Story.txt"))
+            else if (currentPage > storySize)
             {
-
-            }
-            else
-            {
-                Console.WriteLine("There seems to be no storyFile, Try again when theres a storyfile attached.");
-                Console.WriteLine(" Press any button to continue...");
+                Console.Clear();
+                Console.WriteLine(" Tried to turn to a page that does not exist... ");
+                Console.WriteLine(" Press any button to continue to menu");
                 Console.ReadKey(true);
                 Console.Clear();
-                Environment.Exit(0);
+                menu = true;
+                gameOver = true;
+                ChoiceA = false;
+                ChoiceB = false;
+                MenuLoop();
+
             }
+            else if (currentPage < 0)
+            {
+                Console.Clear();
+                Console.WriteLine(" Tried to turn to a page that does not exist... ");
+                Console.WriteLine(" Press any button to continue to menu");
+                Console.ReadKey(true);
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                ChoiceA = false;
+                ChoiceB = false;
+                MenuLoop();
+            }
+            
         }
 
         static void MenuLoop()
@@ -426,7 +443,7 @@ namespace InterativeFiction
         static void Inisalization()
         {
             storySize = File.ReadLines("Story.txt").Count();
-            
+            StoryFileChecks();
         }
 
         static void LoadSave()
