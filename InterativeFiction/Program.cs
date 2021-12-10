@@ -22,7 +22,7 @@ namespace InterativeFiction
         static string savedPageData;
         static string saveCounter;
         static bool menu = true;
-        static bool isActive;
+        
         
        
 
