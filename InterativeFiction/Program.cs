@@ -18,9 +18,7 @@ namespace InterativeFiction
         static bool CorrectedText = false;
         static bool PlayerDead = false;
         static int storySize;
-        static int saves;
         static string savedPageData;
-        static string saveCounter;
         static bool menu = true;
         
         
@@ -28,6 +26,7 @@ namespace InterativeFiction
 
         static void Main(string[] args)
         {
+            Inisalization();
             while (PlayerDead  == false)
             {
                 while (menu == true)
@@ -58,22 +57,6 @@ namespace InterativeFiction
             }
         }
 
-        static void StoryFileChecks()
-        {
-          if (storyTable.Length == 0 || storyTable == null)
-            {
-                Console.Clear();
-                Console.WriteLine(" There seems to be no storyFile, Try again when theres a storyfile attached.");
-                Console.WriteLine(" Press any button to continue...");
-                Console.ReadKey();
-                menu = true;
-                ChoiceA = false;
-                ChoiceB = false;
-                MenuLoop();
-
-            }
-        }
-
         static void MenuLoop()
         {
             DisplayMenu();
@@ -93,6 +76,7 @@ namespace InterativeFiction
             }
             else if (Input.Key == ConsoleKey.DownArrow)
             {
+                StoryCheck();
                 currentPage = 0;
                 Console.Clear();
                 Console.ReadKey(true);
@@ -415,16 +399,8 @@ namespace InterativeFiction
 
         static void LoadSave()
         {
-            using (StreamReader sr = new StreamReader("SaveData.txt"))
-            {
-                savedPageData = sr.ReadLine();
-                saveCounter = sr.ReadLine();
-
-            }
-
-            int.TryParse(savedPageData, out currentPage);
-            int.TryParse(saveCounter, out saves);
-
+            StoryCheck();
+            SaveCheck();
         }
 
         static void WinChecks()
@@ -460,9 +436,7 @@ namespace InterativeFiction
         {
           using (StreamWriter sw = new StreamWriter("SaveData.txt"))
             {
-                saves = saves - 1;
                 sw.WriteLine(currentPage.ToString());
-                sw.WriteLine(saves.ToString());
                 sw.WriteLine(File.GetLastWriteTime("SaveData.txt"));
                 Console.WriteLine("You Saved Your Game Sucessfully!");
                 
@@ -551,6 +525,79 @@ namespace InterativeFiction
 
 
         }
+
+        static void SaveCheck()
+        {
+            if (File.Exists("SaveData.txt"))
+            {
+
+                    using (StreamReader sr = new StreamReader("SaveData.txt"))
+                    {
+                        savedPageData = sr.ReadLine();
+
+                    }
+
+                    int.TryParse(savedPageData, out currentPage);
+            }
+            else
+            {
+                File.Create("SaveData.txt");
+                Console.WriteLine("Couldnt find a save file...");
+                Console.WriteLine("Creating a new save file...");
+                Console.WriteLine("Starting new game... Press any key to continue");
+                Console.ReadKey();
+            }
+            if (currentPage < 0)
+            {
+                Console.WriteLine("Your save file was corrupted as is trying to load a page lower than 0");
+                Console.WriteLine("We have deleted your save file, and created a new one for you...");
+                Console.ReadKey();
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                MenuLoop();
+            }
+            if (currentPage > storySize)
+            {
+                Console.WriteLine("Your save file was corrupted as is trying to load a page higher than the story size");
+                Console.WriteLine("We have deleted your save file, and created a new one for you...");
+                Console.ReadKey();
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                MenuLoop();
+            }
+        }
+
+        static void StoryCheck()
+        {
+            if (File.Exists("Story.txt"))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("There is no story text file. Please ensure it is inplace and try again...");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                MenuLoop();
+            }
+            if (storySize == 0)
+            {
+                Console.WriteLine("The story has no text in it. Please ensure the correct story file is in place and try again...");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+                Console.Clear();
+                menu = true;
+                gameOver = true;
+                MenuLoop();
+            }
+
+        }
+
         static void PageCorrector()
         {
             // Makes sure your on the right page aswell as resting the choice Bools so cannot Spam
