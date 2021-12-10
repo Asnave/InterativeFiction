@@ -57,6 +57,13 @@ namespace InterativeFiction
             }
         }
 
+        static void options()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine(" Press S to Save");
+            Console.WriteLine(" Press M to go back to menu");
+        }
         static void MenuLoop()
         {
             DisplayMenu();
@@ -473,12 +480,8 @@ namespace InterativeFiction
             if (CorrectedText == true)
             {
                 //Console.WriteLine(storyTable[currentPage].Length);
-                int len = Text.Length;
-                for (int i = 0; i < len; i++)
-                {
-                    Console.Write(Text[i]);
-                }
-
+                Console.Write(Text);
+                options();
 
             }
 
