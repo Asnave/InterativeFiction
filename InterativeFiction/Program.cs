@@ -448,15 +448,26 @@ namespace InterativeFiction
 
         static void LoadSave()
         {
-            using (StreamReader sr = new StreamReader("SaveData.txt"))
+            if (File.Exists("SaveData.txt"))
             {
-                savedPageData = sr.ReadLine();
-                saveCounter = sr.ReadLine();
+                using (StreamReader sr = new StreamReader("SaveData.txt"))
+                {
+                    savedPageData = sr.ReadLine();
+                    saveCounter = sr.ReadLine();
 
+                }
+
+                int.TryParse(savedPageData, out currentPage);
+                int.TryParse(saveCounter, out saves);
             }
-
-            int.TryParse(savedPageData, out currentPage);
-            int.TryParse(saveCounter, out saves);
+            else
+            {
+                File.Create("SaveData.txt");
+                Console.WriteLine("There was an error creating a save file... Creating one now...");
+                Console.WriteLine("Starting new game...");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+            }
 
         }
 
